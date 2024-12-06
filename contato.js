@@ -39,14 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const emailPara = document.createElement("p");
         emailPara.innerHTML = '<strong>E-mail:</strong> <a href="mailto:thiagosilva1978@gmail.com">thiagosilva1978@gmail.com</a>';
         main.appendChild(emailPara);
-    } else {
-        const h1 = document.createElement("h1");
-        h1.textContent = "Bem-vindo ao meu portfólio!";
-        main.appendChild(h1);
-        const p = document.createElement("p");
-        p.textContent = "Oi, sou Thiago Vicente, estudante de Análise de Sistemas na Uninter. Aqui você pode conhecer um pouco sobre mim, minha formação e meus projetos.";
-        main.appendChild(p);
-    }
+    } 
 
     body.appendChild(main);
 });
