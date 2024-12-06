@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
     header.appendChild(nav);
     body.appendChild(header);
 
-    if (window.location.pathname === '/contato.js') {
+    if (window.location.pathname.includes('contato.js')) {
         const h1 = document.createElement("h1");
         h1.textContent = "Meus Contatos";
         main.appendChild(h1);
@@ -39,10 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const emailPara = document.createElement("p");
         emailPara.innerHTML = '<strong>E-mail:</strong> <a href="mailto:thiagosilva1978@gmail.com">thiagosilva1978@gmail.com</a>';
         main.appendChild(emailPara);
-    } 
+    }
 
     body.appendChild(main);
 });
-
-
-
