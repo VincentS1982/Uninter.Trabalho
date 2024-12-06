@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const body = document.body;
+    const main = document.getElementById("main-content");
 
     const header = document.createElement("header");
     const nav = document.createElement("nav");
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         { href: 'sobre.html', text: 'Sobre' },
         { href: 'formacao.html', text: 'Formação' },
         { href: 'portfolio.html', text: 'Portfólio' },
-        { href: 'contato.html', text: 'Contato' }
+        { href: 'contato.js', text: 'Contato' }
     ];
 
     menuItems.forEach(item => {
@@ -26,20 +27,29 @@ document.addEventListener("DOMContentLoaded", function() {
     header.appendChild(nav);
     body.appendChild(header);
 
-    const main = document.createElement("main");
-    const h1 = document.createElement("h1");
-    h1.textContent = "Meus Contatos";
-    main.appendChild(h1);
+    if (window.location.pathname === '/contato.js') {
+        const h1 = document.createElement("h1");
+        h1.textContent = "Meus Contatos";
+        main.appendChild(h1);
 
-    const telefonePara = document.createElement("p");
-    telefonePara.innerHTML = '<strong>Telefone:</strong> <a href="tel:+5541999998788">(41) 99999-8788</a>';
-    main.appendChild(telefonePara);
+        const telefonePara = document.createElement("p");
+        telefonePara.innerHTML = '<strong>Telefone:</strong> <a href="tel:+5541999998788">(41) 99999-8788</a>';
+        main.appendChild(telefonePara);
 
-    const emailPara = document.createElement("p");
-    emailPara.innerHTML = '<strong>E-mail:</strong> <a href="mailto:thiagosilva1978@gmail.com">thiagosilva1978@gmail.com</a>';
-    main.appendChild(emailPara);
+        const emailPara = document.createElement("p");
+        emailPara.innerHTML = '<strong>E-mail:</strong> <a href="mailto:thiagosilva1978@gmail.com">thiagosilva1978@gmail.com</a>';
+        main.appendChild(emailPara);
+    } else {
+        const h1 = document.createElement("h1");
+        h1.textContent = "Bem-vindo ao meu portfólio!";
+        main.appendChild(h1);
+        const p = document.createElement("p");
+        p.textContent = "Oi, sou Thiago Vicente, estudante de Análise de Sistemas na Uninter. Aqui você pode conhecer um pouco sobre mim, minha formação e meus projetos.";
+        main.appendChild(p);
+    }
 
-    body.innerHTML = '';  // Limpa todo o conteúdo anterior do body.
-    body.appendChild(header); // Adiciona a navegação.
-    body.appendChild(main);   // Adiciona o conteúdo da página de contato.
+    body.appendChild(main);
 });
+
+
+
