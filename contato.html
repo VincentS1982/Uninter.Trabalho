@@ -7,38 +7,60 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="formacao.html">Formação</a></li>
-                <li><a href="portfolio.html">Portfólio</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <h1>Meus Contatos</h1>
-
-        <p><strong>Telefone:</strong> <a href="tel:+5541999998788">(41) 99999-8788</a></p>
-        <p><strong>E-mail:</strong> <a href="mailto:thiagosilva1978@gmail.com">thiagosilva1978@gmail.com</a></p>
-    </main>
-
     <script>
-        const telefone = document.querySelector('a[href^="tel"]');
-        const email = document.querySelector('a[href^="mailto"]');
+        const header = document.createElement('header');
+        const nav = document.createElement('nav');
+        const ul = document.createElement('ul');
+        
+        const menuItems = [
+            { href: 'index.html', text: 'Início' },
+            { href: 'sobre.html', text: 'Sobre' },
+            { href: 'formacao.html', text: 'Formação' },
+            { href: 'portfolio.html', text: 'Portfólio' },
+            { href: 'contato.html', text: 'Contato' }
+        ];
 
-        telefone.addEventListener('click', () => {
+        menuItems.forEach(item => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = item.href;
+            a.textContent = item.text;
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+
+        nav.appendChild(ul);
+        header.appendChild(nav);
+        document.body.appendChild(header);
+
+        const main = document.createElement('main');
+        const h1 = document.createElement('h1');
+        h1.textContent = 'Meus Contatos';
+        main.appendChild(h1);
+
+        const telefonePara = document.createElement('p');
+        telefonePara.innerHTML = '<strong>Telefone:</strong> <a href="tel:+5541999998788">(41) 99999-8788</a>';
+        main.appendChild(telefonePara);
+
+        const emailPara = document.createElement('p');
+        emailPara.innerHTML = '<strong>E-mail:</strong> <a href="mailto:thiagosilva1978@gmail.com">thiagosilva1978@gmail.com</a>';
+        main.appendChild(emailPara);
+
+        document.body.appendChild(main);
+
+        const telefoneLink = document.querySelector('a[href^="tel"]');
+        const emailLink = document.querySelector('a[href^="mailto"]');
+
+        telefoneLink.addEventListener('click', () => {
             alert("Você clicou no número de telefone!");
         });
 
-        email.addEventListener('click', () => {
+        emailLink.addEventListener('click', () => {
             alert("Você clicou no e-mail!");
         });
     </script>
 </body>
 </html>
+
 
 
