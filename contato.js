@@ -2,10 +2,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const body = document.body;
     const main = document.getElementById("main-content");
 
-    const header = document.createElement("header");
-    const nav = document.createElement("nav");
-    const ul = document.createElement("ul");
-
     const menuItems = [
         { href: 'index.html', text: 'Início' },
         { href: 'sobre.html', text: 'Sobre' },
@@ -14,6 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
         { href: 'contato.js', text: 'Contato' }
     ];
 
+    const header = document.createElement("header");
+    const nav = document.createElement("nav");
+    const ul = document.createElement("ul");
+    
     menuItems.forEach(item => {
         const li = document.createElement("li");
         const a = document.createElement("a");
@@ -28,18 +28,13 @@ document.addEventListener("DOMContentLoaded", function() {
     body.appendChild(header);
 
     if (window.location.pathname.includes('contato.js')) {
-        const h1 = document.createElement("h1");
-        h1.textContent = "Meus Contatos";
-        main.appendChild(h1);
-
-        const telefonePara = document.createElement("p");
-        telefonePara.innerHTML = '<strong>Telefone:</strong> <a href="tel:+5541999998788">(41) 99999-8788</a>';
-        main.appendChild(telefonePara);
-
-        const emailPara = document.createElement("p");
-        emailPara.innerHTML = '<strong>E-mail:</strong> <a href="mailto:thiagosilva1978@gmail.com">thiagosilva1978@gmail.com</a>';
-        main.appendChild(emailPara);
+        main.innerHTML = `
+            <h1>Meus Contatos</h1>
+            <p><strong>Telefone:</strong> <a href="tel:+5541999998788">(41) 99999-8788</a></p>
+            <p><strong>E-mail:</strong> <a href="mailto:thiagosilva1978@gmail.com">thiagosilva1978@gmail.com</a></p>
+        `;
     }
 
     body.appendChild(main);
 });
+
